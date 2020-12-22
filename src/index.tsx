@@ -5,13 +5,20 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import {BrowserRouter as Router} from "react-router-dom"
 
-
+const themeColor = localStorage.getItem('themeColor')
+if (!themeColor){
+  localStorage.setItem('themeColor', '#1890ff')
+} else {
+  window.less.modifyVars({
+    '@primary-color': themeColor
+  })
+}
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Router>
       <App />
-    </Router>
-  </React.StrictMode>,
+    </Router>,
+  // </React.StrictMode>,
   document.getElementById('root')
 )
 

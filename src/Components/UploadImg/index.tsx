@@ -51,6 +51,7 @@ const UploadImg = (props: any) => {
   const manager:any = useRef(RNDContext)
   const onChange = ({fileList: newFileList}: any) => {
     setFileList(newFileList)
+    props.onChange(newFileList)
   }
 
   return (

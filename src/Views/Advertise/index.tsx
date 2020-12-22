@@ -6,23 +6,25 @@ import UploadImg from "../../Components/UploadImg"
 
 const Advertise = () => {
 
-  const [dates, setDates] = useState(new Date())
-  useEffect(() => {
-    let timer: any = setInterval(() => {
-      setDates(new Date())
-    }, 1000)
-    return () => {
-      clearInterval(timer)
-    }
-  })
-  return(
+  const getImg = (val: []) => {
+    console.log(333, val)
+    setList(val)
+  }
+  const [list, setList] = useState([])
+  return (
     <div className='advertise-box'>
       <Row justify={'center'}>
         <Col span={16}>
-          <UploadImg/>
+          <UploadImg
+            onChange={(val: []) => getImg(val)}
+          />
         </Col>
         <Col span={8}>
-          <PhoneList/>
+          <PhoneList
+            {...{
+              list
+            }}
+          />
         </Col>
       </Row>
     </div>

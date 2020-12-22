@@ -2,17 +2,18 @@
   width: 348px;
   height: 730px;
   padding: 12px 10px 51px 16px;
-  background: url("../../static/phone.png") left top no-repeat;
+  background: #fff url("../../static/phone.png") left top no-repeat;
   background-size: cover;
   box-sizing: border-box;
   margin: 0 auto;
 
-  .title{
+  .title {
     padding: 3px 10px;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
   }
+
   .phone-content {
     height: 641px;
     overflow: hidden;
@@ -22,27 +23,118 @@
 
     /*定义滚动条高宽及背景
     高宽分别对应横竖滚动条的尺寸*/
+
     &::-webkit-scrollbar {
       width: 0;
       height: 0;
       background-color: #F5F5F5;
     }
+
     /*定义滚动条轨道
      内阴影+圆角*/
+
     &::-webkit-scrollbar-track {
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       border-radius: 0;
       background-color: #F5F5F5;
     }
+
     /*定义滑块
      内阴影+圆角*/
+
     &::-webkit-scrollbar-thumb {
       border-radius: 0;
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
       background-color: #555;
     }
-    img{
-      width: 100%;
+
+    .anima-box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #00feff;
+      margin: 0 20% 100px 20%;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: -750px;
+        right: -750px;
+        top: 0;
+        transition: all linear .74s;
+      }
+      &:nth-child(odd){
+        margin: 0 30% 100px 30%;
+        img{
+          right: -750px;
+          transition: all linear .74s;
+        }
+      }
+      &:nth-child(even){
+        margin: 0 20% 100px 20%;
+        img{
+          left: 750px;
+          transition: all linear .74s;
+        }
+      }
+      &.active{
+        img{
+          left: 0;
+          right: 0;
+          transition: all linear .74s;
+        }
+      }
+    }
+  }
+  .phone-banner{
+    width: 100%;
+    background: #1a1a1a;
+    height: 641px;
+    overflow: hidden;
+    overflow-y: auto;
+    border-radius: 0 0 10px 10px;
+    border: 0 solid #fff;
+    padding: 30px;
+    .banner-box{
+      height: 500px;
+      background: #fff;
+      border: 1px solid #00feff;
+      margin: 0 auto;
+      img{
+        width: 100%;
+        height: 100%;
+        max-height: 300px;
+      }
+      .banner-name{
+        padding: 10px;
+        white-space: nowrap;
+        word-break: break-all;
+      }
+      .address-box{
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        .shop-address{
+          width: 40%;
+        }
+        .shop-qr{
+          width: 40%;
+        }
+      }
+    }
+    .itemDots{
+      li{
+        button{
+          background: #1c6ca1;
+        }
+        &.slick-active{
+          button{
+            background: #61dafb;
+          }
+        }
+      }
     }
   }
 }
